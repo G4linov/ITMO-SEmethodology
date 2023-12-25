@@ -1,0 +1,31 @@
+@startuml 
+
+class User {
+  +{field} Username: String
+  +{field} Email: String
+  -{field} Payer: Bool
+  -{field} PayDate: date
+  +{method} GetPayer(): bool
+  +{method} SetPayer(status Bool): void
+}
+
+class OrderProtocol {
+  +{field} ID: int
+  +{field} Date: date
+  +{field} Data[]: int
+  +{method} Calculate(self.Data): []int
+}
+
+Class Document {
+  +{field} Order: OrderProtocol
+  -{field} Access: Bool
+  +{method} CreateDoc(self): *doc
+  +{method} SetAccess(Bool): void
+  +{method} SendData(CreateDoc, string): void
+}
+
+
+Document --> User
+Document --> OrderProtocol
+
+@enduml

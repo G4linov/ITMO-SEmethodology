@@ -1,0 +1,13 @@
+@startuml
+
+actor User as u
+participant Приложение as p
+database DB as db
+
+u --> p : Вводит данные для расчета
+p --> db : Добавляет расчёт в дб
+db --> p : Ответ, об успешном сохр
+p --> u : Отдает готовые данные пользователю
+
+
+@enduml
