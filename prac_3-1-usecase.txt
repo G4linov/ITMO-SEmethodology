@@ -2,26 +2,30 @@
 
 left to right direction
 
-actor hulk as g
-actor admin as ad
+actor User as g
 
 rectangle  {
+usecase "Авторизация" as UC0
 usecase "Расчитать раскрой араматуры" as UC1
+usecase "Ввод исходных данных" as UC8
 usecase "Подсчитать количство араматуры по фото" as UC2
+usecase "Загрузка фото из памяти" as UC11
+usecase "Загрузка фото прямо с камеры" as UC12
 usecase "Посмотреть историю операций" as UC3
 usecase "Оплатить платную подписку" as UC4
 usecase "Запрос на обратную связь" as UC5
-usecase "Заявка" as UC6
-usecase "Обработка заявки" as UC7
+usecase "Новая заявка" as UC6
 }
 
+UC5 .left..> UC6 : <Include>
+UC1 .right..> UC8 : <Include>
+UC12 .left..> UC2 : <Extend>
+UC11 .right..> UC2 : <Extend>
+g -- UC0
 g -- UC1
 g -- UC2
 g -- UC3
 g -- UC4
-UC5 .left.> UC6 
-UC7 .left.> UC5 
-ad -up- UC5
 g -- UC5
 
 @enduml
