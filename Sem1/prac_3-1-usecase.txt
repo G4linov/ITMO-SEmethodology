@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+actor User as User
+
+rectangle app {
+  usecase "Авторизация" as UC0
+  usecase "Аутентификация" as UC01
+  usecase "Расчитать раскрой араматуры" as UC1
+  usecase "Ввод исходных данных" as UC8
+  usecase "Подсчитать количство араматуры по фото" as UC2
+  usecase "Загрузка фото из памяти" as UC11
+  usecase "Загрузка фото прямо с камеры" as UC12
+  usecase "Посмотреть историю операций" as UC3
+  usecase "Оплатить платную подписку" as UC4
+  usecase "Запрос на обратную связь" as UC5
+  usecase "Новая заявка" as UC6
+}
+
+User --> UC0
+UC0 --> UC01
+UC01 --> UC0
+User --> UC2
+UC2 --> UC11
+UC2 --> UC12
+User --> UC1
+UC1 --> UC8
+User --> UC5
+UC5 --> UC6
+User --> UC3
+User --> UC4
+
+@enduml
